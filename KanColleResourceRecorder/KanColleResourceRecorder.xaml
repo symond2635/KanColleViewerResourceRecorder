@@ -3,19 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:KanColleResourceRecorder"
              xmlns:kanColleWrapper="clr-namespace:Grabacr07.KanColleWrapper;assembly=KanColleWrapper"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- 定数定義部分。Keyをつけて、下で使う-->
+        <sys:String x:Key="Width">"300"</sys:String>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="41,27,0,0" TextWrapping="Wrap" Text="各資源チェック" VerticalAlignment="Top" FontSize="36"/>
-        <Button Content="燃料" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" Width="75" Click="Fuel_Click"/>
-        <Button Content="弾薬" HorizontalAlignment="Left" Margin="300,80,0,0" VerticalAlignment="Top" Width="75" Click="Ammunition_Click"/>
-        <Button Content="鋼材" HorizontalAlignment="Left" Margin="300,110,0,0" VerticalAlignment="Top" Width="75" Click="Steel_Click"/>
-        <Button Content="ボーキサイト" HorizontalAlignment="Left" Margin="300,140,0,0" VerticalAlignment="Top" Width="75" Click="Bauxite_Click"/>
-        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Fuel}" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Ammunition}" HorizontalAlignment="Left" Margin="400,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Steel}" HorizontalAlignment="Left" Margin="400,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Bauxite}" HorizontalAlignment="Left" Margin="400,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,36,0,0" TextWrapping="Wrap" Text="資源チェック" VerticalAlignment="Top" FontSize="36"/>
+        <GroupBox Header="資源" HorizontalAlignment="Left" Height="99" Margin="230,22,0,0" VerticalAlignment="Top" Width="87">
+            <StackPanel>
+                <TextBlock Text="35000" HorizontalAlignment="Right" Margin="0,3,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="fuel.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="ammunition.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="steel.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20" >
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="bauxite.png"/>
+                    </Canvas.Background>
+                </Canvas>
+            </StackPanel>
+        </GroupBox>
+        <!--
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Fuel}" HorizontalAlignment="Left" Margin="250,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Ammunition}" HorizontalAlignment="Left" Margin="250,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Steel}" HorizontalAlignment="Left" Margin="250,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Bauxite}" HorizontalAlignment="Left" Margin="250,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        -->
     </Grid>
 </UserControl>
