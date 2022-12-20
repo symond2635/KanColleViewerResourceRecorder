@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleWrapper;
+using System.Windows.Threading;
 
 namespace KanColleResourceRecorder
 {
@@ -26,26 +27,40 @@ namespace KanColleResourceRecorder
 
     public partial class KanColleResourceRecorder
     {
+        /// <summary>
+        /// 時計
+        /// </summary>
+        private DispatcherTimer timer;
+        private DispatcherTimer Timer()
+        {
+            // タイマー生成（優先度はアイドル時に設定）
+            var t = new DispatcherTimer(DispatcherPriority.SystemIdle);
+
+            // タイマーイベントの発生間隔を300ミリ秒に設定
+            t.Interval = TimeSpan.FromMilliseconds(300);
+
+            // タイマーイベントの定義
+            t.Tick += (sender, e) => {
+                // タイマーイベント発生時の処理をここに書く
+
+                // 現在の時分秒をテキストに設定
+                Clock.Text = DateTime.Now.ToString("HH:mm:ss");
+            };
+
+            // 生成したタイマーを返す
+            return t;
+        }
+
         public KanColleResourceRecorder()
         {
             InitializeComponent();
+            timer = Timer();
+            timer.Start();
         }
 
-        private void Fuel_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void record(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(KanColleClient.Current.Homeport.Materials.Fuel.ToString());
-        }
-        private void Ammunition_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            MessageBox.Show(KanColleClient.Current.Homeport.Materials.Ammunition.ToString());
-        }
-        private void Steel_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            MessageBox.Show(KanColleClient.Current.Homeport.Materials.Steel.ToString());
-        }
-        private void Bauxite_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            MessageBox.Show(KanColleClient.Current.Homeport.Materials.Bauxite.ToString());
+
         }
     }
 }

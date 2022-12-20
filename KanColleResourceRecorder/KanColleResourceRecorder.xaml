@@ -13,28 +13,32 @@
         <sys:String x:Key="Width">"300"</sys:String>
     </UserControl.Resources>
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="41,36,0,0" TextWrapping="Wrap" Text="資源チェック" VerticalAlignment="Top" FontSize="36"/>
-        <GroupBox Header="資源" HorizontalAlignment="Left" Height="99" Margin="230,22,0,0" VerticalAlignment="Top" Width="87">
-            <StackPanel>
-                <TextBlock Text="35000" HorizontalAlignment="Right" Margin="0,3,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Viewbox HorizontalAlignment="Left" Height="52" Margin="41,42,0,0" VerticalAlignment="Top" Width="427">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="KanColleResourceRecorder" VerticalAlignment="Top" FontSize="36"/>
+        </Viewbox>
+        <GroupBox Header="資源" HorizontalAlignment="Left" Height="96" Margin="41,94,0,0" VerticalAlignment="Top" Width="87">
+            <StackPanel Margin="0,1,0,-2">
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Fuel}" HorizontalAlignment="Right" Margin="0,4,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
                     <Canvas.Background>
                         <ImageBrush ImageSource="fuel.png"/>
                     </Canvas.Background>
                 </Canvas>
-                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Ammunition}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
                 <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
                     <Canvas.Background>
                         <ImageBrush ImageSource="ammunition.png"/>
                     </Canvas.Background>
                 </Canvas>
-                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Steel}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
                 <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20">
                     <Canvas.Background>
                         <ImageBrush ImageSource="steel.png"/>
                     </Canvas.Background>
                 </Canvas>
-                <TextBlock Text="350000" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Bauxite}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <Canvas HorizontalAlignment="Left" Height="20" Margin="5,-17.5,0,0" VerticalAlignment="Top" Width="20" >
                     <Canvas.Background>
                         <ImageBrush ImageSource="bauxite.png"/>
@@ -42,6 +46,41 @@
                 </Canvas>
             </StackPanel>
         </GroupBox>
+        <GroupBox Header="アイテム" HorizontalAlignment="Left" Height="96" Margin="139,94,0,0" VerticalAlignment="Top" Width="87">
+            <StackPanel Margin="0,1,0,-2">
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.DevelopmentMaterials}" HorizontalAlignment="Right" Margin="0,4,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="18" Margin="9,-17,0,0" VerticalAlignment="Top" Width="18">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="development.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.InstantBuildMaterials}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="18" Margin="9,-17,0,0" VerticalAlignment="Top" Width="18">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="instantBuildMaterials.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.InstantRepairMaterials}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="18" Margin="9,-17,0,0" VerticalAlignment="Top" Width="18">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="instantRepairMaterials.png"/>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.ImprovementMaterials}" HorizontalAlignment="Right" Margin="0,0,6,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Canvas HorizontalAlignment="Left" Height="18" Margin="9,-17,0,0" VerticalAlignment="Top" Width="18">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="improvementMaterials.png"/>
+                    </Canvas.Background>
+                </Canvas>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="recode_Button" Content="記録" HorizontalAlignment="Left" Height="40" Margin="282,148,0,0" VerticalAlignment="Top" Width="100" Click="record"/>
+        <Viewbox HorizontalAlignment="Left" Height="60" Margin="250,83,0,0" VerticalAlignment="Top" Width="164">
+            <TextBlock x:Name="Clock" Text="00:00:00" FontSize="52"/>
+        </Viewbox>
+
+
+
         <!--
         <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Fuel}" HorizontalAlignment="Left" Margin="250,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Ammunition}" HorizontalAlignment="Left" Margin="250,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>

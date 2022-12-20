@@ -143,5 +143,26 @@
   <ItemGroup>
     <Resource Include="fuel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ammunition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bauxite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="steel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="development.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="instantBuildMaterials.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="instantRepairMaterials.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="improvementMaterials.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
