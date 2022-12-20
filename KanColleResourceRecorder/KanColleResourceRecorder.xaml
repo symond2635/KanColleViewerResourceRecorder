@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="KanColleResourceRecorder.KanColleResourceRecorder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KanColleResourceRecorder"
+             xmlns:kanColleWrapper="clr-namespace:Grabacr07.KanColleWrapper;assembly=KanColleWrapper"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="41,27,0,0" TextWrapping="Wrap" Text="各資源チェック" VerticalAlignment="Top" FontSize="36"/>
+        <Button Content="燃料" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" Width="75" Click="Fuel_Click"/>
+        <Button Content="弾薬" HorizontalAlignment="Left" Margin="300,80,0,0" VerticalAlignment="Top" Width="75" Click="Ammunition_Click"/>
+        <Button Content="鋼材" HorizontalAlignment="Left" Margin="300,110,0,0" VerticalAlignment="Top" Width="75" Click="Steel_Click"/>
+        <Button Content="ボーキサイト" HorizontalAlignment="Left" Margin="300,140,0,0" VerticalAlignment="Top" Width="75" Click="Bauxite_Click"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Fuel}" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Ammunition}" HorizontalAlignment="Left" Margin="400,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Steel}" HorizontalAlignment="Left" Margin="400,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Source={x:Static kanColleWrapper:KanColleClient.Current}, Path=Homeport.Materials.Bauxite}" HorizontalAlignment="Left" Margin="400,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>
