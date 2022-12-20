@@ -14,7 +14,7 @@
     </UserControl.Resources>
     <Grid>
         <Viewbox HorizontalAlignment="Left" Height="52" Margin="41,42,0,0" VerticalAlignment="Top" Width="427">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="KanColleResourceRecorder" VerticalAlignment="Top" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="KanColleResourceRecorder" VerticalAlignment="Top" FontSize="36"/>
         </Viewbox>
         <GroupBox Header="資源" HorizontalAlignment="Left" Height="96" Margin="41,94,0,0" VerticalAlignment="Top" Width="87">
             <StackPanel Margin="0,1,0,-2">
