@@ -90,3 +90,4 @@ C:\Users\symond\Documents\GitHub\KanColleResourceRecorder\KanColleResourceRecord
 C:\Users\symond\Documents\GitHub\KanColleResourceRecorder\KanColleResourceRecorder\obj\Debug\KanColleResourceRecorder.csproj.CopyComplete
 C:\Users\symond\Documents\GitHub\KanColleResourceRecorder\KanColleResourceRecorder\obj\Debug\KanColleResourceRecorder.dll
 C:\Users\symond\Documents\GitHub\KanColleResourceRecorder\KanColleResourceRecorder\obj\Debug\KanColleResourceRecorder.pdb
+C:\Users\symond\Documents\GitHub\KanColleResourceRecorder\KanColleResourceRecorder\obj\Debug\KanColleResourceRecorder.csproj.ResolveComReference.cache

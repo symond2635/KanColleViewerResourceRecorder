@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleWrapper;
 using System.Windows.Threading;
+using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace KanColleResourceRecorder
 {
@@ -60,7 +62,75 @@ namespace KanColleResourceRecorder
 
         private void record(object sender, RoutedEventArgs e)
         {
+            string fuel = KanColleClient.Current.Homeport.Materials.Fuel.ToString();
+            string ammunition = KanColleClient.Current.Homeport.Materials.Ammunition.ToString();
+            string steel = KanColleClient.Current.Homeport.Materials.Steel.ToString();
+            string bauxite = KanColleClient.Current.Homeport.Materials.Bauxite.ToString();
+            string developmentMaterials = KanColleClient.Current.Homeport.Materials.DevelopmentMaterials.ToString();
+            string instantBuildMaterials = KanColleClient.Current.Homeport.Materials.InstantBuildMaterials.ToString();
+            string instantRepairMaterials = KanColleClient.Current.Homeport.Materials.InstantRepairMaterials.ToString();
+            string improvementMaterials = KanColleClient.Current.Homeport.Materials.ImprovementMaterials.ToString();
 
+
+        }
+           
+        private void writeText(String value)
+        {
+            // シートを開く。
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            ExcelApp.Visible = true;
+
+            Workbooks ExcelWBs = ExcelApp.Workbooks;
+            Workbook ExcelWB = ExcelWBs.Open(@"C:\Users\xxx\source\repos\excel_test\excel_test\excel_test\bin\Debug\test.xlsx");
+            Worksheet ExcelWorksheet = ExcelWB.Sheets[1];
+            ExcelWorksheet.Select();
+
+            // シートへ書き込みする。
+            /*
+            Range OutputRange1 = ExcelWorksheet.Range[ExcelWorksheet.Cells[1, 1], ExcelWorksheet.Cells[1, 5]];
+            OutputRange1.Value2 = StringInput;
+
+            Range OutputRange2 = ExcelWorksheet.Range[ExcelWorksheet.Cells[2, 1], ExcelWorksheet.Cells[2, 5]];
+            OutputRange2.Value2 = ObjectInput;
+
+            Range OutputRange3 = ExcelWorksheet.Range[ExcelWorksheet.Cells[3, 1], ExcelWorksheet.Cells[3, 5]];
+            OutputRange3.Formula = ObjectInput;
+
+            // ファイルへ書き込みする。
+            ExcelWB.SaveAs(@"C:\Users\xxx\source\repos\excel_test\excel_test\excel_test\bin\Debug\test.xlsx");
+            ExcelWB.Close();
+
+            // オブジェクトを破棄する。
+            Marshal.ReleaseComObject(OutputRange1);
+            OutputRange1 = null;
+            Marshal.ReleaseComObject(OutputRange2);
+            OutputRange2 = null;
+            Marshal.ReleaseComObject(OutputRange3);
+            OutputRange3 = null;
+            Marshal.ReleaseComObject(ExcelWorksheet);
+            ExcelWorksheet = null;
+            Marshal.ReleaseComObject(ExcelWB);
+            ExcelWB = null;
+            Marshal.ReleaseComObject(ExcelWBs);
+            ExcelWBs = null;
+            
+            */
+            // ガベージコレクションを実行する。
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+
+            // アプリケーションを終了する。
+            ExcelApp.Quit();
+
+            // Appricationオブジェクトを破棄する。
+            Marshal.ReleaseComObject(ExcelApp);
+            ExcelApp = null;
+
+            // Appricationオブジェクトのガベージコレクションを実行する。
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
     }
 }

@@ -78,6 +78,9 @@
         <Viewbox HorizontalAlignment="Left" Height="60" Margin="250,83,0,0" VerticalAlignment="Top" Width="164">
             <TextBlock x:Name="Clock" Text="00:00:00" FontSize="52"/>
         </Viewbox>
+        <Label Content="Excelファイルパス" HorizontalAlignment="Left" Margin="41,199,0,0" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="41,230,0,0" TextWrapping="Wrap" Text="ファイルパス" VerticalAlignment="Top" Width="385"/>
+        <Button Content="参照" HorizontalAlignment="Left" Height="20" Margin="431,230,0,0" VerticalAlignment="Top" Width="54"/>
 
 
 
